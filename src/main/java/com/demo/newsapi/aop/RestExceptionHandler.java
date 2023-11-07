@@ -16,6 +16,10 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 @ControllerAdvice
 public class RestExceptionHandler extends ResponseEntityExceptionHandler {
 
+    /**
+     * @param ex exception for invalid input params passed to the api
+     * @return
+     */
     @ExceptionHandler ({ConstraintViolationException.class})
     protected ResponseEntity<Object> handleConstraintViolationException(ConstraintViolationException ex) {
         String errorMsg = "Input params to the api invalid";
@@ -23,6 +27,10 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
         return buildResponseEntity(apiError);
     }
 
+    /**
+     * @param ex application exception thrown by code logic
+     * @return
+     */
     @ExceptionHandler(ApplicationException.class)
     protected ResponseEntity<Object> handleApplicationException(ApplicationException ex) {
         String errorMsg = "Error occured while processing request";

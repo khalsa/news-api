@@ -22,6 +22,10 @@ public class NewsApiClient {
     @Autowired
     RestTemplate restTemplate;
 
+    /**
+     * @param query for the external api service for top articles
+     * @return response from the service
+     */
     public NewsApiResponse getTopNews(String query) {
         String decryptedKey = apiKey == null ? "" : decrypt(apiKey,"api-key");
         String topHeadlinesUrl = baseUrl + "/top-headlines?"+query+"&country=us&apiKey="+decryptedKey;
@@ -29,6 +33,10 @@ public class NewsApiClient {
         return restTemplate.getForObject(topHeadlinesUrl, NewsApiResponse.class);
     }
 
+    /**
+     * @param query for the external api service for searching articles
+     * @return response from the service
+     */
     public NewsApiResponse searchNews(String query) {
         String decryptedKey = apiKey == null ? "" : decrypt(apiKey,"api-key");
         String searchUrl = baseUrl + "/everything?"+query+"&sortBy=popularity&apiKey="+decryptedKey;

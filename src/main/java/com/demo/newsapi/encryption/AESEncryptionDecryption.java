@@ -23,6 +23,9 @@ public class AESEncryptionDecryption {
     private static byte[] key;
     private static final String ALGORITHM = "AES";
 
+    /**
+     * @param myKey passed secret key
+     */
     public static void prepareSecreteKey(String myKey) {
         MessageDigest sha = null;
         try {
@@ -32,10 +35,15 @@ public class AESEncryptionDecryption {
             key = Arrays.copyOf(key, 16);
             secretKey = new SecretKeySpec(key, ALGORITHM);
         } catch (NoSuchAlgorithmException e) {
-            log.error("Error in prepareSecreteKey: " + e.toString());
+            log.error("Error in prepareSecreteKey: " + e.getMessage());
         }
     }
 
+    /**
+     * @param strToEncrypt string to be encrypted
+     * @param secret key for encrypting
+     * @return
+     */
     public static String encrypt(String strToEncrypt, String secret) {
         try {
             prepareSecreteKey(secret);
@@ -43,11 +51,16 @@ public class AESEncryptionDecryption {
             cipher.init(ENCRYPT_MODE, secretKey);
             return Base64.getEncoder().encodeToString(cipher.doFinal(strToEncrypt.getBytes("UTF-8")));
         } catch (Exception e) {
-            log.error("Error while encrypting: " + e.toString());
+            log.error("Error while encrypting: " + e.getMessage());
         }
         return null;
     }
 
+    /**
+     * @param strToDecrypt string to be decrypted
+     * @param secret key for encrypting
+     * @return
+     */
     public static String decrypt(String strToDecrypt, String secret) {
         try {
             prepareSecreteKey(secret);
