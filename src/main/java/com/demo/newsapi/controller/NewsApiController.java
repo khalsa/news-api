@@ -23,6 +23,12 @@ public class NewsApiController {
     @Autowired
     ArticlesService newsApiService;
 
+    /**
+     * @param q input keywords or phrases to search
+     * @param searchIn the fields to restrict your q search to. Possible values are title, description, content
+     * @param count limit the number of records returned, if not specified default is 10
+     * @return
+     */
     @GetMapping(value={"/search"})
     @ResponseStatus(HttpStatus.OK)
     public NewsApiResponse search(@RequestParam(name = "q") @Size(max = 100) String q,
@@ -31,12 +37,21 @@ public class NewsApiController {
         return newsApiService.search(Params.builder().query(q).searchIn(searchIn).count(count).build());
     }
 
+    /**
+     * @param count the number of records returned
+     * @return
+     */
     @GetMapping(value={"/search/top/{count}"})
     @ResponseStatus(HttpStatus.OK)
     public NewsApiResponse getTopNews(@PathVariable(name = "count") @Min(1) @Max(100) Integer count) {
         return newsApiService.getTopNews(Params.builder().count(count).build());
     }
 
+    /**
+     * @param category possible categories business, entertainment, general, health, technology
+     * @param count the number of records returned
+     * @return
+     */
     @GetMapping(value={"/search/top/{category}/{count}"})
     @ResponseStatus(HttpStatus.OK)
     public NewsApiResponse getTopNewsForCategory(@PathVariable("category") @Size(max = 20) String category,

@@ -28,8 +28,8 @@ public class NewsApiDao {
     NewsApiClient newsApiClient;
 
     /**
-     * @param p Query params for search
-     * @return NewsApiResponse from external service
+     * @param p query params for search
+     * @return newsApiResponse from external service
      */
     @Cacheable(value="articles")
     @Scheduled(fixedDelay = 12, timeUnit = TimeUnit.HOURS)
@@ -42,7 +42,7 @@ public class NewsApiDao {
     }
 
     /**
-     * @param p Query params for getting top articles
+     * @param p query params for getting top articles
      * @return NewsApiResponse from external service
      */
     @Cacheable(value="articles")
@@ -70,7 +70,7 @@ public class NewsApiDao {
     }
 
     /**
-     * @param p Query params
+     * @param p query params
      * @return query string based on input param
      */
     private String getSearchQuery(Params p) {
@@ -91,7 +91,7 @@ public class NewsApiDao {
     }
 
     /**
-     * @param p Query params
+     * @param p query params
      * @return query string based on input param
      */
     private String getTopResultsQuery(Params p) {

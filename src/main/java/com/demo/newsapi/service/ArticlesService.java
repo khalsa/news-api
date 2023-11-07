@@ -17,7 +17,7 @@ public class ArticlesService implements ArticlesSearch {
     NewsApiDao newsApiDao;
 
     /**
-     * @param params Input query params for searching
+     * @param params input query params for searching
      * @return NewsApiResponse from dao
      */
     @Override
@@ -26,7 +26,7 @@ public class ArticlesService implements ArticlesSearch {
     }
 
     /**
-     * @param params Input query params for getting top n news
+     * @param params input query params for getting top n news
      * @return NewsApiResponse from dao
      */
     @Override
@@ -35,7 +35,7 @@ public class ArticlesService implements ArticlesSearch {
     }
 
     /**
-     * @param params Input query params for getting top n news based on the category
+     * @param params input query params for getting top n news based on the category
      * @return NewsApiResponse from dao
      */
     @Override
