@@ -10,6 +10,9 @@ import org.springframework.context.annotation.Configuration;
 import java.util.Arrays;
 
 
+/*
+* Cache manager responsible for initializing caches in the application
+ */
 @Configuration
 @EnableCaching
 public class CachingConfig {

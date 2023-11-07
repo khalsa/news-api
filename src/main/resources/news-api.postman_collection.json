@@ -1,0 +1,82 @@
+{
+	"info": {
+		"_postman_id": "9c85aaa8-a367-42a8-afd9-a86bcaf0ddb7",
+		"name": "news-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "search",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v1/news/search?q=samsung",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"news",
+						"search"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "samsung"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search top-n",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v1/news/search/top/10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"news",
+						"search",
+						"top",
+						"10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search top-n category",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v1/news/search/top/10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"news",
+						"search",
+						"top",
+						"10"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

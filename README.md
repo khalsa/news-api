@@ -64,5 +64,6 @@ http://localhost:8080/swagger-ui/index.html
 3) Move secret key used for encrypting api key to environment variables or vault.
 4) Containerize the application.
 5) Use distributed caching like redis.
-6) Implement rate limiter.
+6) Implement retry logic while calling external api.
+7) Implement rate limiter.
 
